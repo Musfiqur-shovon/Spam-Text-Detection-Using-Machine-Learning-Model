@@ -1,0 +1,19 @@
+<!-- classify/templates/form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Classification</title>
+</head>
+<body>
+    <h1>Text Classification Form</h1>
+    <form method="POST" action="{% url 'classify_text' %}">
+        {% csrf_token %}
+        <label for="text">Enter Text:</label><br>
+        <textarea name="text" id="text" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Classify">
+    </form>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
